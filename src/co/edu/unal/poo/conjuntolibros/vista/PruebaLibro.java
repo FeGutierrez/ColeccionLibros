@@ -11,7 +11,15 @@ import java.util.Scanner;
 /**
  *
  * @author Estudiante
- */
+
+*/
+// **********************
+// **********************
+// ****** Revisar bluej.org       *****
+// ****** Revisar greenfoot.org   *****
+// ****** Revisar jelliot   *****
+// **********************
+// *********************
 public class PruebaLibro {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
