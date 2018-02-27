@@ -12,7 +12,7 @@ package co.edu.unal.poo.conjuntolibros.data;
 public class Libro {
     private String titulo;
     private int numeroPaginas;
-    private int calificacion;
+    private double calificacion;
     //Asociacion : Cardinalidad 0..1 o 1
     private Autor autor;    
     //Si fuera arreglo es 
@@ -39,11 +39,11 @@ public class Libro {
         this.numeroPaginas=numeroPaginas;
     };
     
-    public int getCalificacion(){
+    public double getCalificacion(){
         return this.calificacion;
     };
     
-    public void setCalificacion(int calificacion){
+    public void setCalificacion(double calificacion){
         this.calificacion=calificacion;
     };
     

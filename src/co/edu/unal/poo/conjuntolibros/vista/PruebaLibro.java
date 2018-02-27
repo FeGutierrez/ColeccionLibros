@@ -23,6 +23,12 @@ import java.util.Scanner;
 public class PruebaLibro {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Digite tamaño ");
+        int tam = sc.nextInt();
+        ConjuntoLibros conjLib = new ConjuntoLibros(tam);
+        
+        
+        
         System.out.println("Nombre Autor");
         String nombre= sc.next();
         String m= sc.next();
