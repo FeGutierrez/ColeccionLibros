@@ -5,8 +5,6 @@
  * and open the template in the editor.
  */
 package co.edu.unal.poo.conjuntolibros.data;
-
-import java.util.Scanner;
 /**
  *
  * @author Estudiante
@@ -16,7 +14,6 @@ public class ConjuntoLibros {
     //Asociacion
     private Libro[] libros;
     
-    Scanner sc = new Scanner(System.in);   
 
     
     
@@ -54,55 +51,70 @@ public Libro[] eliminarLibroxTitulo(Libro libro, String titulo){
 
 public Libro[] eliminarLibroxAutor(Libro libro, String autor){   
     for (int i = 0; i < this.libros.length; i++) {
-        if (this.libros[i].getAutor().equals(autor) ){
+        if (this.libros[i].getAutor().getNombre().equals(autor) ){
             this.libros[i]= null;
         }
     }    
     return this.libros;
 }
-public double mostrarLibroMayorCalificacion(Libro libro){
-    double mayor = 0;
+
+// APRENDIZAJE POO BASADO EN CASOS GITBOOK
+// FUNDAMENTOS DE PROGRAMACION APRENDIZAJE ACTIVO BASADO EN POO GITBOOK
+
+public Libro mostrarLibroMayorCalificacion(Libro libro){
+    Libro mayorCalificado = null;
     for (int i = 0; i < this.libros.length; i++) {
-        if (mayor<this.libros[i].getCalificacion()){
-            mayor=this.libros[i].getCalificacion();
+        
+        if (this.libros[i] != null && mayorCalificado == null){
+            mayorCalificado=this.libros[i];
         } else {
-            mayor = mayor; //No se si en esta linea sea convenienete simplemente eliminar el else, ya que si el valor de la posicion no es mayor que el comodin
-            // El valor de "mayor" deberia permanecer igual
+            if (this.libros[i] != null && this.libros[i].getCalificacion() > mayorCalificado.getCalificacion()){
+                mayorCalificado = this.libros[i];
+            }
         }
-    }
-    return mayor;
+    };
+    return mayorCalificado;
 };
 
-public double mostrarLibroMenorCalificacion(Libro libro){
-    double menor = this.libros[0].getCalificacion();
+//Se es experto programador al comprender situacines y poder modelar
+
+public Libro mostrarLibroMenorCalificacion(Libro libro){
+    Libro menorCalificado = null;
+    
     for (int i = 0; i < this.libros.length; i++) {
-        if (menor>this.libros[i].getCalificacion()){
-            menor=this.libros[i].getCalificacion();
+        
+        if (this.libros[i] != null && menorCalificado == null){
+            menorCalificado=this.libros[i];
         } else {
-            menor = menor; //No se si en esta linea sea convenienete simplemente eliminar el else, ya que si el valor de la posicion no es mayor que el comodin
-            // El valor de "mayor" deberia permanecer igual
+            if (this.libros[i] != null && this.libros[i].getCalificacion() > menorCalificado.getCalificacion()){
+                menorCalificado = this.libros[i];
+            }
         }
-    }
-    return menor;
+    };
+    return menorCalificado;
 };
 
 public Libro[] mostrarLibros(){
     return this.libros;
 };
 
-public void calificarLibroxTitulo(Libro libro, double valor, String titulo){
+public boolean calificarLibroxTitulo(Libro libro, double valor, String titulo){
     for (int i = 0; i < this.libros.length; i++) {
         if(this.libros[i].getTitulo().equals(titulo)){
+            
             this.libros[i].setCalificacion(valor);
+            return true;
         } else {
-            System.out.println("El titulo solicitado no ha sido registrado");
+            return false;
         }
     }
-    
+    return false;
 };
 
-public void calificarLibroxPosicion(Libro libro, double valor, int pos){
+//boolean si se desea informar al usuario
+public boolean calificarLibroxPosicion(int pos, double valor){
     this.libros[pos].setCalificacion(valor);
+    return true;
 }; 
     
         
